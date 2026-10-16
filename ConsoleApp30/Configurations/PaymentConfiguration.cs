@@ -11,7 +11,12 @@ namespace ConsoleApp30.Configurations
     {
         public void Configure(EntityTypeBuilder<Payment> builder)
         {
-            throw new NotImplementedException();
+            builder
+                .HasOne(p => p.Rental)
+                .WithMany(r => r.Payments)
+                .HasForeignKey(p => p.RentalId);
+
+            builder
         }
     }
 }

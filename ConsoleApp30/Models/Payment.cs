@@ -6,6 +6,7 @@ public class Payment
 {
     public int Id { get; set; }
     public int RentalId { get; set; }
+    public Rental Rental { get; set; }
     public int Amount { get; set; }
     public DateOnly PaymentDate { get; set; }
     public PaymentType PaymentType { get; set; }
