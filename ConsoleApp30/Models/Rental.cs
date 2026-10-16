@@ -12,6 +12,8 @@ public class Rental
     public int DailyPrice { get; set; }
     public Car Car { get; set; } = null!;
     public Customer Customer { get; set; } = null!;
+    public List<Payment> Payments { get; set; }
+    public List<Penalty> Penalties { get; set; }
     public override string ToString()
     {
         return $"Id : {Id}, CarId : {CarId}, CustomerId : {CustomerId}, StartDate : {StartDate}, ExpectedReturnDate : {ExpectedReturnDate}, ActualReturnDate : {ActualReturnDate}, Total Price : {TotalPrice}, DailyPrice : {DailyPrice}";

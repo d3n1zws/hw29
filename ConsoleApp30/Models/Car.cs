@@ -10,6 +10,8 @@ public class Car
     public int Year { get; set; }
     public int Mileage { get; set; }
     public bool IsAvailable { get; set; }
+    public List<Rental> Rental { get; set; }
+    public List<MaintenanceRecord> MaintenanceRecords { get; set; } 
     public override string ToString()
     {
         return $"Id : {Id}, Brand : {Brand}, Model : {Model}, PlateNumber: {PlateNumber}, DailyPrice : {DailyPrice}, Year : {Year}, Mileage: {Mileage}, Is Avaliable : {IsAvailable}";

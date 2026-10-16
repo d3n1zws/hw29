@@ -3,7 +3,8 @@
 public class MaintenanceRecord
 {
     public int Id { get; set; }
-    public int CardId { get; set; }
+    public int CarId { get; set; }
+    public Car Car { get; set; }
     public string Description { get; set; } = null!;
     public DateOnly MaintenanceDate { get; set; }
     public int Cost { get; set; }

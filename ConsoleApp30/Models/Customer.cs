@@ -7,6 +7,7 @@ public class Customer
     public string Email { get; set; } = null!;
     public string DrivingLicenseNumber { get; set; } = null!;
     public DateOnly LicenseExpiryDate { get; set; }
+    public List<Rental> Rentals { get; set; }
     public override string ToString()
     {
         return $"Id : {Id}, FullName : {FullName}, Email : {Email}, DrivingLicenseNumber : {DrivingLicenseNumber}, LicenseExpiryDate : {LicenseExpiryDate}";
