@@ -11,6 +11,6 @@ public class MaintenanceRecord
     public DateOnly NextMaintenanceDate { get; set; }
     public override string ToString()
     {
-        return $"Id : {Id}, CardId : {CardId}, Description : {Description}, MaintenanceDate : {MaintenanceDate}, Cost : {Cost}";
+        return $"Id : {Id}, CardId : {CarId}, Description : {Description}, MaintenanceDate : {MaintenanceDate}, Cost : {Cost}";
     }
 }

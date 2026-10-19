@@ -17,6 +17,7 @@ namespace ConsoleApp30.Configurations
                 .HasForeignKey(p => p.RentalId);
 
             builder
+                .HasKey(p => p.Id);
         }
     }
 }
