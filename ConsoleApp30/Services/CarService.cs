@@ -2,13 +2,14 @@
 using ConsoleApp30.Models;
 using System;
 using System.Collections.Generic;
+using System.Reflection.Metadata;
 using System.Text;
 
 namespace ConsoleApp30.Services;
 
-public static class ICarService
+public static class CarService
 {
-    public static void Create(string brand, string model, string plateNumber, int dailyPrice, int year, int mileage, bool isAvailable)
+    public static async Task Create(string brand, string model, string plateNumber, int dailyPrice, int year, int mileage, bool isAvailable)
     {
         using (var context = new AppDbContext())
         {
@@ -23,7 +24,7 @@ public static class ICarService
                 IsAvailable = isAvailable
             };
             context.Cars.Add(car);
-            context.SaveChanges();
+            await context.SaveChangesAsync();
         }
     }
     public static void Read()
@@ -37,7 +38,7 @@ public static class ICarService
             }
         }
     }
-    public static void Update(int carId, string brand, string model, string plateNumber, int dailyPrice, int year, int mileage, bool isAvailable)
+    public static async Task Update(int carId, string brand, string model, string plateNumber, int dailyPrice, int year, int mileage, bool isAvailable)
     {
         using (var context = new AppDbContext())
         {
@@ -51,11 +52,11 @@ public static class ICarService
                 car.Year = year;
                 car.Mileage = mileage;
                 car.IsAvailable = isAvailable;
-                context.SaveChanges();
+                await context.SaveChangesAsync();
             }
         }
     }
-    public static void Delete(int carId)
+    public static async Task Delete(int carId)
     {
         using (var context = new AppDbContext())
         {
@@ -64,7 +65,33 @@ public static class ICarService
             {
                 context.Cars.Remove(car);
             }
-            context.SaveChanges();
+            await context.SaveChangesAsync();
+        }
+    }
+    public static void FindCarByModel(string model)
+    {
+        using (var context = new AppDbContext())
+        {
+            var cars = context.Cars
+                .Where(c => c.Model == model)
+                .ToList();
+            foreach(var car in cars)
+            {
+                Console.WriteLine(car.ToString());
+            }
+        }
+    }
+    public static void FindCarByPrice(int min, int max)
+    {
+        using (var context = new AppDbContext())
+        {
+            var cars = context.Cars
+                .Where(c => c.DailyPrice >= min)
+                .ToList();
+            foreach (var car in cars)
+            {
+                Console.WriteLine(car.ToString());
+            }
         }
     }
 }

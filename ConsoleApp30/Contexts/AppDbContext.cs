@@ -11,7 +11,7 @@ public class AppDbContext : DbContext
         base.OnConfiguring(optionsBuilder);
     }
     public DbSet<Car> Cars { get; set; }
-    public DbSet<Rental> Customers { get; set; }
+    public DbSet<Customer> Customers { get; set; }
     public DbSet<MaintenanceRecord> MaintenanceRecords { get; set; }
     public DbSet<Payment> Payments { get; set; }
     public DbSet<Penalty> Penalties { get; set; }
